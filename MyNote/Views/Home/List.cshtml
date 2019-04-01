@@ -1,0 +1,23 @@
+﻿@model List<Note>
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="text-center">
+    <h2 class="in">Lista zapominalskiego :)</h2>
+    <a asp-action="AddNote" class="btn btn-primary">Dodaj nową notatkę</a>
+
+    <table class="table">
+        <tbody>
+            @foreach (var note in Model)
+            {
+                <tr>
+                    <td>
+                        @note.description  @note.dataTime <a asp-action="DeleteNote" method="get" asp-route-id="@note.id" class="btn btn-danger">usuń</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
